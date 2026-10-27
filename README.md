@@ -1,8 +1,12 @@
 # nfldoinkeR-data
 
-Release data for [Off the Upright](https://offtheupright.com): NFL kicks that hit an upright or the crossbar, with the kickers and teams tables they reference. This repository holds only the build code. The data lives in [Releases](https://github.com/ke1v3y/nfldoinkeR-data/releases), never in the tree.
+Release data for [Off the Upright](https://offtheupright.com): NFL kicks that hit an upright or the crossbar ("doinks"), with the kickers and teams tables they reference. This repository holds only the build code. The data lives in [Releases](https://github.com/ke1v3y/nfldoinkeR-data/releases), never in the tree.
 
 The R package [nfldoinkeR](https://github.com/ke1v3y/nfldoinkeR) reads these releases. You can also read the files directly.
+
+## Scope
+
+Regular-season and postseason games only, with doinks from 1974 on. Preseason and the Hall of Fame Game are excluded, matching the official statistical record. Coverage is complete from 1996; 1974 through 1995 is an ongoing backfill, so absence before 1996 proves nothing. Video links and notes are not included. The Off the Upright API at [offtheupright.com/developers](https://offtheupright.com/developers) remains the source for live data, video links, preseason doinks and per-game lookups.
 
 ## Files
 
@@ -20,12 +24,12 @@ Columns are those served by the Off the Upright API at build time; the API's [Op
 
 `nflverse_game_id` joins to `nflreadr::load_schedules()` and `kickers.gsis_id` to `nflreadr::load_players()`. Every non-empty id is checked against nflverse before a release is published. nflverse has no schedule rows before 1999, so `nflverse_game_id` is empty for every earlier game.
 
-Coverage: _pending the games-matcher counts (matched, unmatched, excluded); this line will quote them._
+Coverage: as of Oct 27, 2026, 7,383 of the 7,407 regular-season and postseason games from 1999 on are matched to an `nflverse_game_id`; the other 24 have no id yet.
 
 ## Two kinds of release
 
 - **`latest`** is replaced on every build that changes the data. Use it for current data.
-- **`vYYYY.MM.DD`** is a dated release, created once and never changed. Cite one of these.
+- **`vYYYY.MM.DD`** is a dated release, created once and never changed. Cite one of these, not `latest`.
 
 ```r
 # current data
