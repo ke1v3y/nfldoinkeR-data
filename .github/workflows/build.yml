@@ -20,7 +20,7 @@ concurrency:
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     env:
       GH_TOKEN: ${{ github.token }}
     steps:
@@ -52,7 +52,15 @@ jobs:
       - name: Publish
         if: steps.decide.outputs.needed == 'true'
         run: |
-          tag="v$(date -u +%Y.%m.%d)"
+          day="v$(date -u +%Y.%m.%d)"
+          tag="$day"; n=1
+          while :; do
+            rc=0; git ls-remote --exit-code --tags origin "refs/tags/$tag" >/dev/null || rc=$?
+            [ "$rc" -eq 2 ] && break
+            [ "$rc" -ne 0 ] && { echo "::error::could not list tags (git exit $rc)"; exit 1; }
+            n=$((n + 1)); tag="$day.$n"
+          done
+          echo "::notice::publishing $tag"
           gh release create "$tag" out/* --title "$tag" --notes "Data release $tag. Contents and checksums in manifest.json. Licence CC-BY-4.0; attribute Off the Upright (offtheupright.com)."
           gh release view latest >/dev/null 2>&1 || gh release create latest --title latest --notes 'Moving release: always the newest data. Cite a dated tag, not this one.'
           gh release upload latest out/* --clobber
