@@ -107,6 +107,9 @@ if (length(bad_gsis)) stop("gsis_id absent from load_players(): ", paste(bad_gsi
 dir.create("out", showWarnings = FALSE)
 stamp <- Sys.time(); attr(stamp, "tzone") <- "UTC"
 write_set <- function(df, name) {
+  # readr's parse spec and problems pointer survive on tables that were never
+  # subset; they are not data and do not belong in a released object.
+  attr(df, "spec") <- NULL; attr(df, "problems") <- NULL
   plain <- as.data.frame(df)
   attr(df, "nflverse_timestamp") <- stamp
   attr(df, "nflverse_type")      <- paste0(name, " via nfldoinkeR-data")
