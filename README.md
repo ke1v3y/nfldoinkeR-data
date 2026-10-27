@@ -1,12 +1,12 @@
 # nfldoinkeR-data
 
-Release data for [Off the Upright](https://offtheupright.com): NFL kicks that hit an upright or the crossbar ("doinks"), with the kickers and teams tables they reference. This repository holds only the build code. The data lives in [Releases](https://github.com/ke1v3y/nfldoinkeR-data/releases), never in the tree.
+Release data for [Off the Upright](https://offtheupright.com): NFL kicks that hit an upright or the crossbar ("doinks"), with the kickers and teams tables they reference. This repository holds only the build code. The data lives in [Releases](https://github.com/ke1v3y/nfldoinkeR-data/releases).
 
 The R package [nfldoinkeR](https://github.com/ke1v3y/nfldoinkeR) reads these releases. You can also read the files directly.
 
 ## Scope
 
-Regular-season and postseason games only, with doinks from 1974 on. Preseason and the Hall of Fame Game are excluded, matching the official statistical record. Coverage is complete from 1996; 1974 through 1995 is an ongoing backfill, so absence before 1996 proves nothing. Video links and notes are not included. The Off the Upright API at [offtheupright.com/developers](https://offtheupright.com/developers) remains the source for live data, video links, preseason doinks and per-game lookups.
+Regular-season and postseason games only, with doinks from 1974 on. Preseason and the Hall of Fame Game records are excluded. Off the Upright is a living project with an active effort to record every doink in NFL history; coverage is complete from 1996 onward with some high profile games extending back to the first game played with the goalposts at the back of the endzone. Video links and notes are not included. The Off the Upright API at [offtheupright.com/developers](https://offtheupright.com/developers) remains the source for live data, video links, preseason doinks and per-game lookups.
 
 ## Files
 
@@ -39,7 +39,7 @@ doinks <- nflreadr::load_from_url(
 )
 ```
 
-Builds run on Tuesdays from August through February and on the 1st of the month from March through July. A build that finds no change in the data publishes nothing.
+Builds run on Tuesdays from August through February and on the 1st of the month from March through July. Builds without data changes don't get published.
 
 ## Licence and attribution
 
