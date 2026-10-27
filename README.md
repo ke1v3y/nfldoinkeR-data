@@ -24,12 +24,12 @@ Columns are those served by the Off the Upright API at build time; the API's [Op
 
 `nflverse_game_id` joins to `nflreadr::load_schedules()` and `kickers.gsis_id` to `nflreadr::load_players()`. Every non-empty id is checked against nflverse before a release is published. nflverse has no schedule rows before 1999, so `nflverse_game_id` is empty for every earlier game.
 
-Coverage: as of Oct 27, 2026, 7,383 of the 7,407 regular-season and postseason games from 1999 on are matched to an `nflverse_game_id`; the other 24 have no id yet.
+Coverage: all completed regular-season and postseason games from 1999 on are matched to an `nflverse_game_id`; tentative date games do not carry an id yet.
 
 ## Two kinds of release
 
 - **`latest`** is replaced on every build that changes the data. Use it for current data.
-- **`vYYYY.MM.DD`** is a dated release, created once and never changed. Cite one of these, not `latest`.
+- **`vYYYY.MM.DD`** is a dated release, created once and never changed. Cite one of these. A second release on the same UTC date is `vYYYY.MM.DD.2`, then `.3`.
 
 ```r
 # current data
