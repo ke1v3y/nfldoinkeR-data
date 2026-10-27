@@ -6,7 +6,7 @@ The R package [nfldoinkeR](https://github.com/ke1v3y/nfldoinkeR) reads these rel
 
 ## Scope
 
-Regular-season and postseason games only, with doinks from 1974 on. Preseason and the Hall of Fame Game records are excluded. Off the Upright is a living project with an active effort to record every doink in NFL history; coverage is complete from 1996 onward with some high profile games extending back to the first game played with the goalposts at the back of the endzone. Video links and notes are not included. The Off the Upright API at [offtheupright.com/developers](https://offtheupright.com/developers) remains the source for live data, video links, preseason doinks and per-game lookups.
+Regular-season and postseason games only, with doinks from 1974 on. Preseason and the Hall of Fame Game records are excluded. Off the Upright is a living project with an active effort to record every doink in NFL history; coverage is complete from 1996 onward with some high profile games extending back to the first game played with the goalposts at the back of the endzone. Video links and notes are not included. The Off the Upright API at [offtheupright.com/developers](https://offtheupright.com/developers) remains the source for live data and preseason doinks.
 
 ## Files
 
